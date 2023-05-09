@@ -1,4 +1,3 @@
-const assertEqual = require('./assertEqual');
 
 const head = function(argArr) {
   if (argArr.length === 0) {
