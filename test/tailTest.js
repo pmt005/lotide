@@ -1,13 +1,17 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const tail = require('../tail');
 
-// Test Case 1: Check the returned array elements
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result.length, 2); // ensure we get back two elements
-assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-assertEqual(result[1], "Labs"); // ensure second element is "Labs"
-// Test Case 2: empty array
-const result1 = tail([1]);
-assertEqual(result1[0], undefined); // ensure we get back undefined
-const result2 = tail([]);
-assertEqual(result2[0], undefined); // ensure we get back undefined
+
+describe("#tail", () => {
+  it("returns [2,3] for [1, 2, 3]", () => {
+    assert.strictEqual(tail([1, 2, 3]).join(''), '23');
+  });
+
+  it("returns [] for empty array", () => {
+    assert.strictEqual(tail([]).length, 0);
+  });
+
+  it("returns [] for array with 1 element", () => {
+    assert.strictEqual(tail([1]).length, 0);
+  });
+});
