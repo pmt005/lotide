@@ -1,20 +1,4 @@
-const emoji = '\uD83D\uDE0D';
 
-const eqArrays = function(arr1, arr2) {
-  let compare1 = arr1.join();
-  let compare2 = arr2.join();
-  if (compare1 === compare2) {
-    return true;
-  }
-  return false;
-};
-
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    return console.log(`${emoji} Assertion Passed: [${actual}] === [${expected}]`);
-  }
-  return console.log(`Assertion Failed: [${actual}] !== [${expected}]`);
-};
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
@@ -55,9 +39,5 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-const shirtObject = { color: ["red", "blue"], size: "medium" };
-const anotherShirtObject = { size: "medium", color: ["red", "blue"] };
-assertEqual(eqObjects(shirtObject, anotherShirtObject), true);
-const longSleeveMultiColorShirtObject = { size: "medium", colors: ["red", "blue"], sleeveLength: "long" };
-assertEqual(eqObjects(anotherShirtObject  , longSleeveMultiColorShirtObject), false); // => false
+module.exports = eqObjects;
 
